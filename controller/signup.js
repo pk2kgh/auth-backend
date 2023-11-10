@@ -21,7 +21,7 @@ async function InsertVerifyUser(name, email, password) {
       token: token,
     });
 
-    const activationLink = `http://localhost:3000/signup/${token}`;
+    const activationLink = `https://auth-be-z4lz.onrender.com/signup/${token}`;
     const resHtml_ActMail=`<!DOCTYPE html>
     <html>
     <head>
