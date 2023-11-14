@@ -25,7 +25,7 @@ async function InsertVerifyUser(name, email, password) {
     const resHtml_ActMail=`<!DOCTYPE html>
     <html>
     <head>
-      <title>My App</title>
+      <title>User Authentication/title>
       <style>
         /* Responsive CSS */
         header, footer {
@@ -85,7 +85,7 @@ async function InsertVerifyUser(name, email, password) {
     
       <main>
         <div class="box">
-          <h5>Welcome to the app</h5>
+          <h5>Welcome to User Authentication app</h5>
           <p>Thank you for signing up. Click on the below link to activate</p>
           <a href="${activationLink}">Click here</a>
           <p>Regards</p>
@@ -94,7 +94,7 @@ async function InsertVerifyUser(name, email, password) {
       </main>
     
       <footer>
-        <p>Copyright &copy; 2023 My App</p>
+        <p>Copyright &copy; 2023 User Authentication</p>
       </footer>
     </body>
     </html>
@@ -132,33 +132,330 @@ async function InsertSignUpUser(token) {
       });
       await newUser.save();
       await userVerify.deleteOne({ token: token });
-      const content = `<h4>Registeration successfull</h4>
-                      <h5>Welcome to the app</h5>
-                      <p>You have Successfully Registered</p>
-                      <p>Regards</p>
-                      <p>Admin Team</p> `;
-      initmail(newUser.email, "Registeration successful", content);
-      return `<h4>Hi, there </h4>
-              <h5>Welcome to the app</h5>
-              <p>You are successfully registered</p>
-              <p>Regards</p>
-              <p>Admin Team</p>`;
+      
+      
+      const resHtml_RegSMail=`<!DOCTYPE html>
+      <html>
+      <head>
+        <title>User Authentication</title>
+        <style>
+          /* Responsive CSS */
+          header, footer {
+            width: 100%;
+            text-align: center;
+          }
+      
+          main {
+            margin: 0 auto;
+            max-width: 600px;
+          }
+      
+          a {
+            width: 100%;
+          }
+      
+          p {
+            margin-bottom: 1rem;
+          }
+      
+          @media (max-width: 576px) {
+            main {
+              max-width: none;
+            }
+          }
+      
+          .box {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            margin: 0 auto;
+            max-width: 600px;
+          }
+      
+          .box h5 {
+            text-align: left;
+            margin-top: 0;
+          }
+      
+          .box p {
+            margin-bottom: 0;
+          }
+      
+          .box a {
+            display: block;
+            text-align: center;
+            background-color: #000;
+            color: #fff;
+            padding: 0.5rem;
+            margin-top: 1rem;
+          }
+        </style>
+      </head>
+      <body>
+        <header>
+         <h3>Registration Successful</h3>
+        </header>
+      
+        <main>
+          <div class="box">
+            
+                        <h5>Welcome to the app</h5>
+                        <p>You have Successfully Registered</p>
+                        <br>
+                        <p>Regards</p>
+                        <p>Admin Team</p>
+          </div>
+        </main>
+      
+        <footer>
+          <p>Copyright &copy; 2023 User Authentication</p>
+        </footer>
+      </body>
+      </html>`
+      const content = resHtml_RegSMail;
+      initmail(newUser.email, "Registeration Successful", content);
+
+
+      const resHtml_RegSPage=`<!DOCTYPE html>
+      <html>
+      <head>
+        <title>User Authentication</title>
+        <style>
+          /* Responsive CSS */
+          header, footer {
+            width: 100%;
+            text-align: center;
+          }
+      
+          main {
+            margin: 0 auto;
+            max-width: 600px;
+          }
+      
+          a {
+            width: 100%;
+          }
+      
+          p {
+            margin-bottom: 1rem;
+          }
+      
+          @media (max-width: 576px) {
+            main {
+              max-width: none;
+            }
+          }
+      
+          .box {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            margin: 0 auto;
+            max-width: 600px;
+          }
+      
+          .box h5 {
+            text-align: left;
+            margin-top: 0;
+          }
+      
+          .box p {
+            margin-bottom: 0;
+          }
+      
+          .box a {
+            display: block;
+            text-align: center;
+            background-color: #000;
+            color: #fff;
+            padding: 0.5rem;
+            margin-top: 1rem;
+          }
+        </style>
+      </head>
+      <body>
+        <header>
+         <h3>Registration Successful</h3>
+        </header>
+      
+        <main>
+          <div class="box">
+            
+                        <h5 style="text-align:center;">Welcome to the app</h5>
+                        <p style="text-align:center;">You have Successfully Registered</p>
+              <br>
+                        <p>Regards</p>
+                        <p>Admin Team</p>
+          </div>
+        </main>
+      
+        <footer>
+          <p>Copyright &copy; 2023 User Authentication</p>
+        </footer>
+      </body>
+      </html>`;
+      return resHtml_RegSPage;
     }
 
-    return `<h4> Registeration failed</h4>
-            <p>Link expired......</p>
-            <p>Regards</p>
-            <p>Team</p>`;
+    const resHtml_RegFPage=`<!DOCTYPE html>
+    <html>
+    <head>
+      <title>User Authentication</title>
+      <style>
+        /* Responsive CSS */
+        header, footer {
+          width: 100%;
+          text-align: center;
+        }
+    
+        main {
+          margin: 0 auto;
+          max-width: 600px;
+        }
+    
+        a {
+          width: 100%;
+        }
+    
+        p {
+          margin-bottom: 1rem;
+        }
+    
+        @media (max-width: 576px) {
+          main {
+            max-width: none;
+          }
+        }
+    
+        .box {
+          border: 1px solid #ccc;
+          padding: 1rem;
+          margin: 0 auto;
+          max-width: 600px;
+        }
+    
+        .box h5 {
+          text-align: left;
+          margin-top: 0;
+        }
+    
+        .box p {
+          margin-bottom: 0;
+        }
+    
+        .box a {
+          display: block;
+          text-align: center;
+          background-color: #000;
+          color: #fff;
+          padding: 0.5rem;
+          margin-top: 1rem;
+        }
+      </style>
+    </head>
+    <body>
+      <header>
+       <h3>Registration failed</h3>
+      </header>
+    
+      <main>
+        <div class="box">
+          
+                      
+                      <p style="text-align:center;">Link expired...... Try again</p>
+            <br>
+                      <p>Regards</p>
+                      <p>Admin Team</p>
+        </div>
+      </main>
+    
+      <footer>
+        <p>Copyright &copy; 2023 User Authentication</p>
+      </footer>
+    </body>
+    </html>`;
+    return resHtml_RegFPage;
+
   } catch (e) {
     console.log(e);
-    return `<html>
-              <body>
-                <h4> Registeration failed</h4>
-                <p>Unexpected error happenned ....</p>
-                <p>Regards</p>
-                <p>Team</p>
-              </body>
-            </html>`;
+    
+    const resHtml_RegFPageException=`<!DOCTYPE html>
+    <html>
+    <head>
+      <title>User Authentication</title>
+      <style>
+        /* Responsive CSS */
+        header, footer {
+          width: 100%;
+          text-align: center;
+        }
+    
+        main {
+          margin: 0 auto;
+          max-width: 600px;
+        }
+    
+        a {
+          width: 100%;
+        }
+    
+        p {
+          margin-bottom: 1rem;
+        }
+    
+        @media (max-width: 576px) {
+          main {
+            max-width: none;
+          }
+        }
+    
+        .box {
+          border: 1px solid #ccc;
+          padding: 1rem;
+          margin: 0 auto;
+          max-width: 600px;
+        }
+    
+        .box h5 {
+          text-align: left;
+          margin-top: 0;
+        }
+    
+        .box p {
+          margin-bottom: 0;
+        }
+    
+        .box a {
+          display: block;
+          text-align: center;
+          background-color: #000;
+          color: #fff;
+          padding: 0.5rem;
+          margin-top: 1rem;
+        }
+      </style>
+    </head>
+    <body>
+      <header>
+       <h3>Registration failed</h3>
+      </header>
+    
+      <main>
+        <div class="box">
+          
+                      
+                      <p style="text-align:center;">Unexpected error happenned ....Try again</p>
+            <br>
+                      <p>Regards</p>
+                      <p>Admin Team</p>
+        </div>
+      </main>
+    
+      <footer>
+        <p>Copyright &copy; 2023 User Authentication</p>
+      </footer>
+    </body>
+    </html>`;
+
+    return resHtml_RegFPageException;
   }
 }
 
