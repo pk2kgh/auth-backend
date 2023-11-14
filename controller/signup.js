@@ -22,10 +22,10 @@ async function InsertVerifyUser(name, email, password) {
     });
 
     const activationLink = `https://auth-be-z4lz.onrender.com/signup/${token}`;
-    const resHtml_ActMail=`
+    const resHtml_ActMail=`<!DOCTYPE html>
     <html>
     <head>
-      <title>User Authentication/title>
+      <title>User Authentication</title>
       <style>
         /* Responsive CSS */
         header, footer {
