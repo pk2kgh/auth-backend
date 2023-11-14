@@ -80,7 +80,7 @@ async function InsertVerifyUser(name, email, password) {
     </head>
     <body>
       <header>
-        <h1>My App</h1>
+      
       </header>
     
       <main>
@@ -199,7 +199,8 @@ async function InsertSignUpUser(token) {
           <div class="box">
             
                         <h5>Welcome to the app</h5>
-                        <p>You have Successfully Registered</p>
+                        <p>You have Successfully Registered. Click on the below link to Login</p>
+                        <a href="https://userauthpk.netlify.app">Click here</a></p>
                         <br>
                         <p>Regards</p>
                         <p>Admin Team</p>
@@ -280,7 +281,8 @@ async function InsertSignUpUser(token) {
           <div class="box">
             
                         <h5 style="text-align:center;">Welcome to the app</h5>
-                        <p style="text-align:center;">You have Successfully Registered</p>
+                        <p style="text-align:center;">You have Successfully Registered Click on the below link to Login</p>
+                        <a href="https://userauthpk.netlify.app">Click here</a></p>
               <br>
                         <p>Regards</p>
                         <p>Admin Team</p>
